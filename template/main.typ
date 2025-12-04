@@ -1,13 +1,14 @@
 #import "@preview/touying:0.6.1": *
-// #import "@preview/touying-simpl-sjtu:0.1.0": *
+// #import "@preview/touying-simpl-bupt:0.1.0": *
 #import "../lib.typ": *
 
-#show: sjtu-theme.with(config-info(
-  title: [Touying for SJTU: Customize Your Slide Title Here],
-  subtitle: [Customize Your Slide Subtitle Here],
+#set text(lang: "zh")
+#show: bupt-theme.with(config-info(
+  title: [Typst Slide Theme for BUPT Based on Touying],
+  subtitle: [基于 Touying 的北京邮电大学 Typst 幻灯片模板],
   author: [Authors],
   date: datetime.today(),
-  institution: [Shanghai Jiao Tong University],
+  institution: [北京邮电大学],
 ))
 
 #title-slide()

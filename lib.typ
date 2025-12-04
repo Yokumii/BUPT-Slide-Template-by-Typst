@@ -119,7 +119,7 @@
   }
 )
 
-#let sjtu-header(self) = {
+#let bupt-header(self) = {
   if self.store.navigation == "sidebar" {
     place(right + top, {
       v(4em)
@@ -158,7 +158,7 @@
       grid(
         columns: (75%, 25%),
         align(left + horizon, utils.display-current-heading(depth: self.slide-level, style: auto)),
-        align(right + horizon, image("vi/sjtu-vi-sjtugate.png", height: 0.9cm)),
+        align(right + horizon, image("vi/bupt-vi-buptgate.png", height: 0.9cm)),
       ),
       align(center + horizon, line(length: 100%, stroke: (paint: self.colors.primary, thickness: 1.5pt))),
     )
@@ -170,14 +170,14 @@
       grid(
         columns: (75%, 25%),
         align(left + horizon, utils.display-current-heading(depth: self.slide-level, style: auto)),
-        align(right + horizon, image("vi/sjtu-vi-sjtugate.png")),
+        align(right + horizon, image("vi/bupt-vi-buptgate.png")),
       ),
       align(center + horizon, line(length: 100%, stroke: (paint: self.colors.primary, thickness: 1.5pt))),
     )
   }
 }
 
-#let sjtu-footer(self) = {
+#let bupt-footer(self) = {
   set align(bottom)
   set text(size: if self.appendix { 0em } else { 0.8em })
   show: pad.with(.5em)
@@ -226,7 +226,7 @@
 ) = touying-slide-wrapper(self => {
   let self = utils.merge-dicts(
     self,
-    config-page(header: sjtu-header, footer: sjtu-footer, margin: (x: 1.25cm)),
+    config-page(header: bupt-header, footer: bupt-footer, margin: (x: 1.25cm)),
     config-common(subslide-preamble: self.store.subslide-preamble),
   )
   touying-slide(self: self, config: config, repeat: repeat, setting: setting, composer: composer, ..bodies)
@@ -238,7 +238,7 @@
 /// Example:
 ///
 /// ```typst
-/// #show: sjtu-theme.with(
+/// #show: bupt-theme.with(
 ///   config-info(
 ///     title: [Title],
 ///     logo: emoji.city,
@@ -257,15 +257,15 @@
   ..args,
 ) = touying-slide-wrapper(self => {
   self = utils.merge-dicts(self, config, config-common(freeze-slide-counter: true), config-page(
-    header: align(right + horizon, block(inset: (right: 0.3em, top: 0.3em), image("vi/sjtu-vi-logo.png"))),
+    header: align(right + horizon, block(inset: (right: 0.3em, top: 0.3em), image("vi/bupt-vi-logo.png"))),
     margin: (top: 3.5em, bottom: 1.5em, x: 2em),
   ))
   let info = self.info + args.named()
   let body = {
     set par(leading: 1.6em)
     set align(center + horizon)
-    set page(background: align(left + bottom, image("vi/sjtu-vi-sjtubg.png", width: if self.show-notes-on-second-screen
-      == right { 50% } else { 100% })))
+    set page(background: align(center + bottom, image("vi/bupt-vi-buptbg.png", width: if self.show-notes-on-second-screen
+      == right { 50% } else { 70% })))
     block(width: 100%, inset: 3em, {
       block(
         if info.subtitle == none {
@@ -325,7 +325,7 @@
   let body = {
     set par(leading: 1.6em)
     set align(left + bottom)
-    set page(background: align(left, image("vi/sjtu-vi-sjtuphoto.jpg")))
+    set page(background: align(left, image("vi/bupt-vi-buptphoto.jpg")))
     line(length: 100%, stroke: (paint: self.colors.neutral-light, thickness: 1.5pt))
     v(-1.15em)
     block(fill: self.colors.primary, width: 100%, {
@@ -365,7 +365,7 @@
           }
           v(0.5em)
         }),
-        align(right, block(inset: (x: 2em), image("vi/sjtu-vi-logo-white.png"))),
+        align(right, block(inset: (x: 2em), image("vi/bupt-vi-logo-white.png"))),
       )
       v(2em)
     })
@@ -380,7 +380,7 @@
 ///
 /// - title (string): The title of the slide. Default is `utils.i18n-outline-title`.
 #let outline-slide(config: (:), title: utils.i18n-outline-title, ..args) = touying-slide-wrapper(self => {
-  self = utils.merge-dicts(self, config-common(freeze-slide-counter: true), config-page(footer: sjtu-footer, margin: (
+  self = utils.merge-dicts(self, config-common(freeze-slide-counter: true), config-page(footer: bupt-footer, margin: (
     top: 3em,
   )))
   touying-slide(self: self, config: config, components.adaptive-columns(
@@ -528,12 +528,12 @@
       grid(
         columns: (1fr, 35%),
         align(left + horizon, text(size: 1.9em, utils.display-current-heading(depth: self.slide-level, style: auto))),
-        align(right + horizon, image("vi/sjtu-vi-sjtugate.png", height: 1.5cm)),
+        align(right + horizon, image("vi/bupt-vi-buptgate.png", height: 1.5cm)),
       ),
       v(-2cm),
       align(center + horizon, line(length: 100%, stroke: (paint: self.colors.primary, thickness: 1.5pt))),
     ),
-    footer: sjtu-footer,
+    footer: bupt-footer,
     margin: (top: 8cm, left: 0cm),
   ))
   touying-slide(self: self, config: config, components.adaptive-columns(text(
@@ -601,12 +601,12 @@
   )
   set text(fill: self.colors.primary, size: 1.65em, weight: "bold")
   let body = {
-    set page(background: align(left + bottom, image("vi/sjtu-vi-sjtubg.png", width: if self.show-notes-on-second-screen
-      == right { 50% } else { 100% })))
+    set page(background: align(center + bottom, image("vi/bupt-vi-buptbg.png", width: if self.show-notes-on-second-screen
+      == right { 50% } else { 70% })))
     block(width: 80%, grid(
       columns: (40%, 1fr),
       column-gutter: 0pt,
-      image("vi/sjtu-vi-logo-ud.png"), body,
+      image("vi/bupt-vi-logo-ud.png"), body,
     ))
   }
   touying-slide(self: self, config: config, align(horizon + center, body))
@@ -620,19 +620,19 @@
   ))
   set text(fill: self.colors.primary, size: 1.75em, weight: "bold")
   let body = {
-    set page(background: align(left, image("vi/sjtu-vi-end.png")))
+    set page(background: align(left, image("vi/bupt-vi-end.png")))
     v(3.6em)
     body
   }
   touying-slide(self: self, config: config, align(top + center, body))
 })
 
-/// Touying sjtu theme.
+/// Touying bupt theme.
 ///
 /// Example:
 ///
 /// ```typst
-/// #show: sjtu-theme.with(aspect-ratio: "16-9", config-colors(primary: blue))`
+/// #show: bupt-theme.with(aspect-ratio: "16-9", config-colors(primary: blue))`
 /// ```
 ///
 /// The default colors:
@@ -643,7 +643,7 @@
 ///   neutral-dark: rgb("#202020"),
 ///   neutral-light: rgb("#f3f3f3"),
 ///   neutral-lightest: rgb("#ffffff"),
-///   primary: rgb("#0c4842"),
+///   primary: rgb("#003399"),
 /// )
 /// ```
 ///
@@ -670,17 +670,17 @@
 ///
 /// - footer-right (content, function): The right part of the footer. Default is `context utils.slide-counter.display() + " / " + utils.last-slide-number`.
 ///
-/// - primary (color): The primary color of the slides. Default is `rgb("#0c4842")`.
+/// - primary (color): The primary color of the slides. Default is `rgb("#003399")`.
 ///
 /// - alpha (fraction, float): The alpha of transparency. Default is `60%`.
 ///
 /// - outline-title (content, function): The title of the outline. Default is `utils.i18n-outline-title`.
 ///
 /// - subslide-preamble (content, function): The preamble of the subslide. Default is `self => block(text(1.2em, weight: "bold", fill: self.colors.primary, utils.display-current-heading(depth: self.slide-level)))`.
-#let sjtu-theme(
+#let bupt-theme(
   aspect-ratio: "16-9",
   navigation: "mini-slides",
-  font: ("Libertinus Serif", "Noto Serif CJK SC"),
+  font: ("Libertinus Serif", "fonts/SimHei.ttf"),
   sidebar: (
     width: 10em,
     filled: false,
@@ -698,7 +698,7 @@
   ),
   footer: none,
   footer-right: context utils.slide-counter.display() + " / " + utils.last-slide-number,
-  primary: rgb("#C9141E"), //#A51F38
+  primary: rgb("#003399"), // BUPT blue
   alpha: 40%,
   subslide-preamble: none,
   ..args,

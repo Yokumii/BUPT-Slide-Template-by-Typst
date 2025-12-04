@@ -7,16 +7,16 @@
 #let fletcher-diagram = touying-reducer.with(reduce: fletcher.diagram, cover: fletcher.hide)
 
 #set text(lang: "zh")
-#show: sjtu-theme.with(
+#show: bupt-theme.with(
   aspect-ratio: "16-9",
   footer: self => self.info.institution,
   navigation: "mini-slides",
   config-info(
-    title: [Typst Slide Theme for SJTU Based on Touying],
-    subtitle: [基于 Touying 的上海交通大学 Typst 幻灯片模板],
-    author: [tzhtaylor],
+    title: [Typst Slide Theme for bupt Based on Touying],
+    subtitle: [基于 Touying 的北京邮电大学 Typst 幻灯片模板],
+    author: [Yokumi],
     date: datetime.today(),
-    institution: [上海交通大学],
+    institution: [北京邮电大学],
   ),
 )
 
@@ -224,11 +224,11 @@ Touying 社区正在探索与更多 Typst 包的集成，详细情况可查阅#l
 #slide[
   - 您可以使用：
     ```sh
-    typst init @preview/touying-sjtu
+    typst init @preview/touying-bupt
     ```
     来创建基于本模板的演示文稿项目。
 
-  - 本模板仓库位于 #link("https://github.com/tzhTaylor/touying-sjtu")，欢迎关注与贡献。
+  - 本模板仓库位于 #link("https://github.com/tzhTaylor/touying-bupt")，欢迎关注与贡献。
 ]
 
 == 参考文献 <touying:unoutlined>
